@@ -40,8 +40,8 @@ CONFIG = {
 # La administración es UNA sola cuenta, la de este correo (no se puede registrar por la web):
 # se crea sola al iniciar la aplicación. Para no dejar la clave en el código, define ADMIN_CLAVE
 # (variable de entorno); si no existe se usa la clave inicial de abajo. Cámbiala al publicar la web.
-ADMIN_CORREO = os.environ.get("ADMIN_CORREO", "mktpublicidadcorporativo@gmail.com").strip().lower()
-ADMIN_CLAVE = os.environ.get("ADMIN_CLAVE", "MPCorporativo")
+ADMIN_CORREO = os.environ["ADMIN_CORREO"].strip().lower()
+ADMIN_CLAVE = os.environ["ADMIN_CLAVE"]
 
 # Servicios agrupados por categoría (cat, [(titulo, descripcion), ...])
 CATEGORIAS = [('Marketing y estrategias digitales', [('Marketing', 'Conjunto de actividades y estrategias para promocionar y comercializar productos o servicios, satisfacer las necesidades de los clientes y alcanzar objetivos comerciales.'),
