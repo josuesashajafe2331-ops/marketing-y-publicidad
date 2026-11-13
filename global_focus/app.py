@@ -12,7 +12,10 @@ from flask import Flask, render_template, request, jsonify, g, Response, redirec
 from werkzeug.security import generate_password_hash, check_password_hash
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE, "global_focus.db")
+DB_PATH = os.environ.get(
+    "DB_PATH",
+    os.path.join(BASE, "global_focus.db")
+)
 
 CONFIG = {
     "empresa": "Global Focus S.A.C.",
