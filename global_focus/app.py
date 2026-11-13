@@ -110,16 +110,12 @@ app = Flask(__name__)
 
 
 def _clave_secreta():
-    """Clave para firmar las sesiones: variable SECRET_KEY o un archivo secret.key creado la primera vez."""
     k = os.environ.get("SECRET_KEY")
-    if k:
-        return k
-    ruta = os.path.join(BASE, "secret.key")
-    if not os.path.exists(ruta):
-        with open(ruta, "w") as f:
-            f.write(secrets.token_hex(32))
-    with open(ruta) as f:
-        return f.read().strip()
+
+    if not k:
+        raise RuntimeError("Falta configurar SECRET_KEY")
+
+    return k
 
 app.config.update(
     SECRET_KEY=_clave_secreta(),
