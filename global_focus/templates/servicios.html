@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Servicios | {{ c.empresa }}{% endblock %}
+{% block content %}
+<main>
+<section id="servicios" class="block pagina-serv" aria-labelledby="h-serv">
+
+  <header class="sv-head rv">
+    <span class="sv-etiqueta">Nuestros servicios</span>
+    <h2 id="h-serv">Soluciones estratégicas para impulsar tu empresa</h2>
+    <p>Descubre nuestros servicios y conoce cómo podemos ayudarte a fortalecer tu marca, conectar con tus clientes y hacer crecer tu negocio.</p>
+  </header>
+
+  {# Foto del equipo: guarda tu imagen como static/img/servicios-portada.jpg (se muestra en blanco y negro). #}
+  {% set portada = img_portada() %}
+  <div class="sv-portada rv">
+    <div class="sv-foto{% if portada %} lleno{% endif %}">
+      {% if portada %}<img src="{{ url_for('static', filename=portada) }}" alt="Equipo de Global Focus" loading="lazy">{% endif %}
+    </div>
+  </div>
+
+  {# PRIMER NIVEL: las 4 categorías (toda la tarjeta es un botón) #}
+  <div class="sv-tabs" role="list" aria-label="Categorías de servicios">
+    {% for cat in catalogo %}
+    <button class="sv-tab" style="--d:{{ '%.2f'|format(loop.index0 * 0.08) }}s" type="button" role="listitem"
+            aria-haspopup="dialog" data-i="{{ loop.index0 }}">
+      <span class="sv-ico-box"><svg class="sv-ico" viewBox="0 0 24 24" aria-hidden="true">{{ cat.icono|safe }}</svg></span>
+      <span class="sv-nom">{{ cat.titulo }}</span>
+      <span class="sv-num">{{ cat.temas|length }} servicios</span>
+      <span class="sv-cta">Explorar servicio <i aria-hidden="true">→</i></span>
+    </button>
+    {% endfor %}
+  </div>
+  <p class="sv-ayuda">Elige una categoría y luego un servicio para ver toda su información.</p>
+
+  <noscript>
+    {% for cat in catalogo %}
+    <h3>{{ cat.titulo }}</h3>
+    <ul>{% for t in cat.temas %}<li><strong>{{ t.titulo }}.</strong> {{ t.descripcion }}</li>{% endfor %}</ul>
+    {% endfor %}
+  </noscript>
+</section>
+</main>
+
+{# SEGUNDO Y TERCER NIVEL: ventana modal (se llena con JavaScript) #}
+<div class="svm" id="svm" aria-hidden="true">
+  <div class="svm-box" role="dialog" aria-modal="true" aria-labelledby="svm-titulo">
+    <div class="svm-top">
+      <button class="svm-volver" id="svm-volver" type="button" hidden><span aria-hidden="true">←</span> Volver a los temas</button>
+      <p class="svm-ruta" id="svm-ruta"></p>
+      <button class="svm-x" id="svm-x" type="button" aria-label="Cerrar ventana">&times;</button>
+    </div>
+    <div class="svm-cuerpo" id="svm-cuerpo"></div>
+  </div>
+</div>
+
+<script type="application/json" id="sv-data">{{ catalogo|tojson }}</script>
+
+
+{% endblock %}
