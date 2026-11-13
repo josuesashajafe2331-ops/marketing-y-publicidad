@@ -44,7 +44,7 @@ CONFIG = {
 # se crea sola al iniciar la aplicación. Para no dejar la clave en el código, define ADMIN_CLAVE
 # (variable de entorno); si no existe se usa la clave inicial de abajo. Cámbiala al publicar la web.
 ADMIN_CORREO = os.environ["ADMIN_CORREO"].strip().lower()
-ADMIN_CLAVE = os.environ["ADMIN_CLAVE"]
+ADMIN_CLAVE = os.environ["ADMIN_CLAVE"].strip()
 
 # Servicios agrupados por categoría (cat, [(titulo, descripcion), ...])
 CATEGORIAS = [('Marketing y estrategias digitales', [('Marketing', 'Conjunto de actividades y estrategias para promocionar y comercializar productos o servicios, satisfacer las necesidades de los clientes y alcanzar objetivos comerciales.'),
@@ -198,7 +198,7 @@ def init_db():
     if "rol" not in cu:
         db.execute("ALTER TABLE usuarios ADD COLUMN rol TEXT NOT NULL DEFAULT 'admin'")
     # Solo el correo de administración puede ser admin; se crea la cuenta si todavía no existe
-    db.execute("UPDATE usuarios SET rol='cliente' WHERE correo<>?", (ADMIN_CORREO,))
+    db.execute("UPDATE usuarios SET rol='cliente' WHERE LOWER(correo) <> LOWER(?)", (ADMIN_CORREO,))
     if db.execute("SELECT 1 FROM usuarios WHERE correo=?", (ADMIN_CORREO,)).fetchone():
         db.execute("UPDATE usuarios SET rol='admin' WHERE correo=?", (ADMIN_CORREO,))
     else:
@@ -553,36 +553,38 @@ def login():
         correo = request.form.get("correo", "").strip().lower()[:120]
         clave = request.form.get("clave", "")[:200]
         ip = request.remote_addr or "?"
-        
         if _bloqueado(ip):
             error = "Demasiados intentos. Espera unos minutos e inténtalo de nuevo."
         else:
-            # 1. Validar si es el administrador de las variables de entorno
             admin_correo = os.environ.get("ADMIN_CORREO", "").strip().lower()
             admin_clave = os.environ.get("ADMIN_CLAVE", "")
             
+            # Si el correo coincide con el administrador configurado en Render
             if admin_correo and correo == admin_correo and clave == admin_clave:
                 _intentos.pop(ip, None)
-                # Buscamos o simulamos el registro del admin en la BD para obtener su ID, 
-                # o aseguramos que el sistema lo reconozca con rol 'admin'
-                f = get_db().execute("SELECT * FROM usuarios WHERE correo=?", (correo,)).fetchone()
+                db = get_db()
+                # Forzar el rol 'admin' en la base de datos para este correo de inmediato
+                db.execute("UPDATE usuarios SET rol='admin' WHERE LOWER(correo) = LOWER(?)", (correo,))
+                f = db.execute("SELECT * FROM usuarios WHERE LOWER(correo) = LOWER(?)", (correo,)).fetchone()
                 if f:
                     _entrar(f["id"])
-                    return redirect(_destino("admin"))
                 else:
-                    # Si el admin no está en la tabla de la BD, puedes manejar una sesión especial o crearlo
-                    error = "El correo de administrador no está registrado en la base de datos para asignar sesión."
-            else:
-                # 2. Validación normal de usuarios en la base de datos
-                f = get_db().execute("SELECT * FROM usuarios WHERE correo=?", (correo,)).fetchone()
-                if f and check_password_hash(f["clave"], clave):
-                    _intentos.pop(ip, None)
-                    _entrar(f["id"])
-                    return redirect(_destino(f["rol"]))
+                    cur = db.execute("INSERT INTO usuarios(nombre, correo, clave, rol) VALUES(?, ?, ?, 'admin')",
+                                     ("Administración", correo, generate_password_hash(admin_clave)))
+                    db.commit()
+                    _entrar(cur.lastrowid)
+                db.commit()
+                return redirect(url_for('consultas'))
+            
+            # Validación normal para los demás usuarios
+            f = get_db().execute("SELECT * FROM usuarios WHERE LOWER(correo) = LOWER(?)", (correo,)).fetchone()
+            if f and check_password_hash(f["clave"], clave):
+                _intentos.pop(ip, None)
+                _entrar(f["id"])
+                return redirect(_destino(f["rol"]))
                 
-                _fallo(ip)
-                error = "Correo o contraseña incorrectos."
-                
+            _fallo(ip)
+            error = "Correo o contraseña incorrectos."
     return render_template("auth.html", c=CONFIG, modo="login", error=error, correo=correo)
 
 @app.route("/registro", methods=["GET", "POST"])
@@ -763,6 +765,16 @@ def admin_responder(mid):
     return redirect(url_for("consultas", chat=mid) + "#fin")
 
 
+# TEMPORAL: abre /diagnostico para comprobar qué versión está publicada. Bórralo cuando ya entres al panel.
+@app.get("/diagnostico")
+def diagnostico():
+    f = get_db().execute("SELECT rol FROM usuarios WHERE correo=?", (ADMIN_CORREO,)).fetchone()
+    return jsonify(version="v3", admin_en_db=bool(f), rol=(f["rol"] if f else None))
+
+
+# Se ejecuta al importar el módulo, así funciona con "gunicorn app:app" y con "gunicorn wsgi:app"
+init_db()
+print("init_db ejecutado para", ADMIN_CORREO, flush=True)
+
 if __name__ == "__main__":
-    init_db()
     app.run(debug=True)
