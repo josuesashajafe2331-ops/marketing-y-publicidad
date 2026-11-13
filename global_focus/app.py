@@ -553,18 +553,37 @@ def login():
         correo = request.form.get("correo", "").strip().lower()[:120]
         clave = request.form.get("clave", "")[:200]
         ip = request.remote_addr or "?"
+        
         if _bloqueado(ip):
             error = "Demasiados intentos. Espera unos minutos e inténtalo de nuevo."
         else:
-            f = get_db().execute("SELECT * FROM usuarios WHERE correo=?", (correo,)).fetchone()
-            if f and check_password_hash(f["clave"], clave):
+            # 1. Validar si es el administrador de las variables de entorno
+            admin_correo = os.environ.get("ADMIN_CORREO", "").strip().lower()
+            admin_clave = os.environ.get("ADMIN_CLAVE", "")
+            
+            if admin_correo and correo == admin_correo and clave == admin_clave:
                 _intentos.pop(ip, None)
-                _entrar(f["id"])
-                return redirect(_destino(f["rol"]))
-            _fallo(ip)
-            error = "Correo o contraseña incorrectos."
+                # Buscamos o simulamos el registro del admin en la BD para obtener su ID, 
+                # o aseguramos que el sistema lo reconozca con rol 'admin'
+                f = get_db().execute("SELECT * FROM usuarios WHERE correo=?", (correo,)).fetchone()
+                if f:
+                    _entrar(f["id"])
+                    return redirect(_destino("admin"))
+                else:
+                    # Si el admin no está en la tabla de la BD, puedes manejar una sesión especial o crearlo
+                    error = "El correo de administrador no está registrado en la base de datos para asignar sesión."
+            else:
+                # 2. Validación normal de usuarios en la base de datos
+                f = get_db().execute("SELECT * FROM usuarios WHERE correo=?", (correo,)).fetchone()
+                if f and check_password_hash(f["clave"], clave):
+                    _intentos.pop(ip, None)
+                    _entrar(f["id"])
+                    return redirect(_destino(f["rol"]))
+                
+                _fallo(ip)
+                error = "Correo o contraseña incorrectos."
+                
     return render_template("auth.html", c=CONFIG, modo="login", error=error, correo=correo)
-
 
 @app.route("/registro", methods=["GET", "POST"])
 def registro():
