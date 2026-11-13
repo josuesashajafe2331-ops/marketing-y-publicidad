@@ -121,7 +121,6 @@ def _clave_secreta():
     with open(ruta) as f:
         return f.read().strip()
 
-
 app.config.update(
     SECRET_KEY=_clave_secreta(),
     SESSION_COOKIE_HTTPONLY=True,
