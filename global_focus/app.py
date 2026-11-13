@@ -120,8 +120,9 @@ def _clave_secreta():
 app.config.update(
     SECRET_KEY=_clave_secreta(),
     SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_SAMESITE="Lax",
-    PERMANENT_SESSION_LIFETIME=60 * 60 * 12,   # la sesión no caduca (10 años) hasta que se cierre sesión
+    PERMANENT_SESSION_LIFETIME=60 * 60 * 12,
 )
 
 
