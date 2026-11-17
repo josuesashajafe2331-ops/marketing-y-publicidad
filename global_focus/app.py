@@ -32,7 +32,7 @@ CONFIG = {
     "mapa_lng": -77.03556743975349,
     "mision": "Ayudar a las empresas a comunicar mejor lo que hacen, con diseño, publicidad y tecnología al servicio de sus resultados.",
     "vision": "Ser la agencia de marketing corporativo de referencia para las empresas de Lima y del Perú.",
-    "usuario": "@MKT_CORPORATIVO",   # Aparece en el pie de página: "Encuéntranos por ..."
+    "usuario": "@MKT_CORPORATIVO",   # Aparece en el pie de página:
     "redes": {
         "YouTube":   "https://www.youtube.com/@MKT_CORPORATIVO",
         "Instagram": "https://www.instagram.com/mkt_publicidad_corporativo/",
