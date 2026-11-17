@@ -1084,7 +1084,21 @@ textarea { resize: vertical; }
 /* ---------- Mapa y contacto del pie ---------- */
 .mapa { position: relative; height: clamp(240px, 32vw, 340px); background: var(--n1); border-top: 1px solid var(--line); }
 .mapa iframe { display: block; width: 100%; height: 100%; border: 0; }
-.mapa-ir { position: absolute; right: 5vw; bottom: 1.2rem; padding: 0.6rem 1.1rem; font-weight: 600; font-size: 0.9rem; color: var(--gold); text-decoration: none; background: var(--n2); border: 1px solid rgba(191, 208, 245, 0.4); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); transition: transform 0.2s, background 0.2s; }
+.mapa-ir { 
+    position: absolute; 
+    right: 85px; /* <--- Aumentado de '5vw' a '85px' para dejar espacio a las flechas de Google Maps */
+    bottom: 1.2rem; 
+    padding: 0.6rem 1.1rem; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    color: var(--gold); 
+    text-decoration: none; 
+    background: var(--n2); 
+    border: 1px solid rgba(191, 208, 245, 0.4); 
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); 
+    transition: transform 0.2s, background 0.2s; 
+    z-index: 5; /* <--- Añadido para asegurar que esté por encima del mapa */
+}
 .mapa-ir:hover { background: var(--n3); transform: translateY(-2px); }
 .fcont ul { display: grid; gap: 0.55rem; }
 .fcont li { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0; line-height: 1.35; }
