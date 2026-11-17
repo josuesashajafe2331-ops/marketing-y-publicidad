@@ -874,8 +874,8 @@ textarea { resize: vertical; }
 
 /* ---------- 9. Pie de página ---------- */
 .foot { padding: 2.2rem 5vw 1.2rem; background: var(--n0); border-top: 1px solid var(--line); }
-.fcols { display: grid; grid-template-columns: 1fr 1fr 1fr 1.8fr; gap: 2rem; }
-@media (max-width: 900px) { .fcols { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
+.fcols { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr) minmax(0, 1.3fr) minmax(0, 2.5fr); gap: 2rem; }
+@media (max-width: 800px) { .fcols { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
 .fcols h4 { display: inline-block; padding: 0.25rem 0.8rem; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--gold); background: var(--n2); border: 1px solid rgba(191, 208, 245, 0.4); }
 .fcols ul { list-style: none; margin: 0.8rem 0 0; padding: 0; }
 .fcols li { padding: 0.15rem 0; color: var(--ice); }
@@ -891,8 +891,9 @@ textarea { resize: vertical; }
 .redes span { display: flex; flex-direction: column; line-height: 1.25; }
 .redes b { font-weight: 600; }
 .redes small { font-size: 0.85rem; opacity: 0.85; }
-.redes-cols { display: flex; flex-wrap: wrap; gap: 0.2rem 2.2rem; }
+.redes-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.4rem; }
 .redes-cols .redes { margin: 0.8rem 0 0; }
+.redes span { min-width: 0; overflow-wrap: anywhere; }
 /* ---------- 10. Animaciones ---------- */
 @keyframes entrada { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
