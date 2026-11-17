@@ -874,40 +874,28 @@ textarea { resize: vertical; }
 
 /* ---------- 9. Pie de página ---------- */
 .foot { padding: 2.2rem 5vw 1.2rem; background: var(--n0); border-top: 1px solid var(--line); }
-.fcols { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr) minmax(0, 1.3fr) minmax(0, 2.5fr); gap: 2rem; }
-@media (max-width: 800px) { .fcols { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } }
+.fcols { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.5fr) minmax(0, 1.5fr) minmax(0, 2.6fr); gap: 1.5rem 2rem; }
 .fcols h4 { display: inline-block; padding: 0.25rem 0.8rem; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--gold); background: var(--n2); border: 1px solid rgba(191, 208, 245, 0.4); }
 .fcols ul { list-style: none; margin: 0.8rem 0 0; padding: 0; }
 .fcols li { padding: 0.15rem 0; color: var(--ice); }
 .fcols a { text-decoration: none; transition: color 0.2s, padding 0.2s; }
 .fcols a:hover { color: var(--gold); padding-left: 0.3rem; }
 .copy { margin: 1.5rem 0 0; padding-top: 1rem; font-size: 0.9rem; color: var(--ice); border-top: 1px solid var(--line); }
+
+/* Redes sociales: 2 columnas de 3 */
+.redes-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.4rem; }
 .redes { list-style: none; margin: 0.8rem 0 0; padding: 0; }
 .redes li { padding: 0.3rem 0; }
 .redes a { display: flex; align-items: center; gap: 0.7rem; color: var(--ice); }
 .redes a:hover { color: var(--gold); padding-left: 0.3rem; }
 .redes svg { flex: none; width: 1.3rem; height: 1.3rem; fill: currentColor; }
 .redes svg.st { fill: none; stroke: currentColor; stroke-width: 1.8; }
-.redes span { display: flex; flex-direction: column; line-height: 1.25; }
+.redes span { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; overflow-wrap: anywhere; }
 .redes b { font-weight: 600; }
 .redes small { font-size: 0.85rem; opacity: 0.85; }
-.redes-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.4rem; }
-.redes-cols .redes { margin: 0.8rem 0 0; }
-.redes span { min-width: 0; overflow-wrap: anywhere; }
-/* ---------- 10. Animaciones ---------- */
-@keyframes entrada { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
-@keyframes onda { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.7); opacity: 0; } }
-@keyframes flecha { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
 
-/* Aparecer al bajar (el script agrega la clase "vis") */
-.js .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--d, 0s), transform 0.7s var(--d, 0s); }
-.js .rv.vis { opacity: 1; transform: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  .circulo, .circulo .aro, .circulo .flecha { animation: none; }
-  .trans.go { transition: none; }
-}
+@media (max-width: 1000px) { .fcols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .fcols { grid-template-columns: 1fr; } .redes-cols { grid-template-columns: 1fr; } }
 
 /* ---------- 11. Panel administrativo ---------- */
 .adm { min-height: 100vh; padding: 2rem 4vw 3rem; font-family: var(--body); color: var(--txt); background: var(--n1); }
@@ -1046,7 +1034,6 @@ textarea { resize: vertical; }
   .block { padding: 3.5rem 5vw; }
   .block h2 { padding: 0.6rem 0.8rem; font-size: clamp(1.3rem, 6vw, 1.8rem); }
   .card { padding: 1.2rem; }
-  .fcols { grid-template-columns: 1fr; gap: 1.5rem; }
   form .btn { width: 100%; }
 }
 .logo {
@@ -1099,7 +1086,6 @@ textarea { resize: vertical; }
 .mapa iframe { display: block; width: 100%; height: 100%; border: 0; }
 .mapa-ir { position: absolute; right: 5vw; bottom: 1.2rem; padding: 0.6rem 1.1rem; font-weight: 600; font-size: 0.9rem; color: var(--gold); text-decoration: none; background: var(--n2); border: 1px solid rgba(191, 208, 245, 0.4); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); transition: transform 0.2s, background 0.2s; }
 .mapa-ir:hover { background: var(--n3); transform: translateY(-2px); }
-.fcols { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.5rem 2rem; }
 .fcont ul { display: grid; gap: 0.55rem; }
 .fcont li { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0; line-height: 1.35; }
 .fcont li svg { flex: none; width: 17px; margin-top: 0.15rem; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
