@@ -10,7 +10,7 @@
 <main class="auth-card">
   <p class="auth-marca"><small>Marketing y publicidad corporativa</small><b>{{ c.empresa }}</b></p>
   <h1>{{ 'Crear cuenta' if modo == 'registro' else 'Iniciar sesión' }}</h1>
-  <p class="auth-nota">Para escribirnos necesitas una cuenta. Así guardamos tus consultas y chats y puedes retomarlos cuando quieras.</p>
+  <p class="auth-nota">Para escribirnos necesitas una cuenta. Así guardamos tus consultas y chats, puedes retomarlos cuando quieras.</p>
   {% if error %}<p class="auth-error" role="alert">{{ error }}</p>{% endif %}
 
   {% if modo == 'login' %}
