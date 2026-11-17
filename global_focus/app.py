@@ -97,7 +97,7 @@ EQUIPO = [
     ("Jefe de Asesoría Legal", "Audrey Valdez Espinoza",
      "Especialista en garantizar la seguridad jurídica y el saneamiento de cada transacción inmobiliaria."),
     ("Abogada", "Nazareth Neride Rondón Villanueva",
-     "Abogada especialista en derecho publicitario, dedicada a blindar jurídicamente las campañas creativas, proteger la propiedad intelectual y asegurar el cumplimiento normativo en cada estrategia.."),
+     "Abogada especialista en derecho publicitario, dedicada a brindar jurídicamente las campañas creativas, proteger la propiedad intelectual y asegurar el cumplimiento normativo en cada estrategia.."),
     # Cuatro tarjetas vacías para completar después: escribe aquí el cargo, el nombre y la descripción
     # (y guarda su foto como static/img/equipo/equipo-7.jpg ... equipo-10.jpg)
     ("", "", ""),
