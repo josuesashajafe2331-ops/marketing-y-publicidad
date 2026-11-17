@@ -88,7 +88,7 @@ EMPRESAS = [
 
 # Equipo (cargo, nombre, descripción). El orden es el de las fotos: equipo-1, equipo-2, equipo-3, equipo-4
 EQUIPO = [
-    ("Gerente General / Fundador", "Mario Vitaliano Saraya Lopez",
+    ("Gerente General / Fundador", "Mario Saraya Lopez",
      "Líder visionario con amplia experiencia en el desarrollo y gestión de proyectos inmobiliarios en Lima."),
     ("Directora de Operaciones", "Claudia Reyes Sayas",
      "Encargada de supervisar que cada proyecto se ejecute con los más altos estándares de calidad."),
@@ -98,7 +98,7 @@ EQUIPO = [
      "Asegura que todos los procesos internos y la atención al cliente fluyan de manera eficiente y transparente."),
     ("Jefe de Asesoría Legal", "Audrey Valdez Espinoza",
      "Especialista en garantizar la seguridad jurídica y el saneamiento de cada transacción inmobiliaria."),
-    ("Abogada", "Nazareth Neride Rondón Villanueva",
+    ("Abogada", "Nazareth Rondón Villanueva",
      "Abogada especialista en derecho publicitario, dedicada a brindar jurídicamente las campañas creativas, proteger la propiedad intelectual y asegurar el cumplimiento normativo en cada estrategia.."),
     # Cuatro tarjetas vacías para completar después: escribe aquí el cargo, el nombre y la descripción
     # (y guarda su foto como static/img/equipo/equipo-7.jpg ... equipo-10.jpg)
