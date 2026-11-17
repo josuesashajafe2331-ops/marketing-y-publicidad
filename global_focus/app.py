@@ -34,8 +34,11 @@ CONFIG = {
     "vision": "Ser la agencia de marketing corporativo de referencia para las empresas de Lima y del Perú.",
     "usuario": "@MKT_CORPORATIVO",   # Aparece en el pie de página: "Encuéntranos por ..."
     "redes": {
-        "Facebook": "#", "Instagram": "#", "TikTok": "#",
-        "YouTube": "#", "X": "#",
+        "YouTube":   "https://www.youtube.com/@MKT_CORPORATIVO",
+        "Instagram": "https://www.instagram.com/mkt_publicidad_corporativo/",
+        "X":         "https://x.com/MKT_Corporativo",
+        "TikTok":    "https://www.tiktok.com/@mkt_corporativo_?lang=es",
+        "Facebook":  "https://www.facebook.com/share/1ASFnbFJ2g/",
     },
 }
 
