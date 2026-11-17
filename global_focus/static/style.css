@@ -881,11 +881,15 @@ textarea { resize: vertical; }
 .fcols a { text-decoration: none; transition: color 0.2s, padding 0.2s; }
 .fcols a:hover { color: var(--gold); padding-left: 0.3rem; }
 .copy { margin: 1.5rem 0 0; padding-top: 1rem; font-size: 0.9rem; color: var(--ice); border-top: 1px solid var(--line); }
-.redes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.8rem;}
-.redes a { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; padding: 0; color: var(--ice); border: 1px solid rgba(191, 208, 245, 0.4); border-radius: 50%; transition: background 0.2s, color 0.2s, transform 0.2s; }
-.redes a:hover { padding-left: 0; color: var(--n0); background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
-.redes svg { width: 1.15rem; height: 1.15rem; fill: currentColor; }
+.redes { list-style: none; margin: 0.8rem 0 0; padding: 0; }
+.redes li { padding: 0.3rem 0; }
+.redes a { display: flex; align-items: center; gap: 0.7rem; color: var(--ice); }
+.redes a:hover { color: var(--gold); padding-left: 0.3rem; }
+.redes svg { flex: none; width: 1.3rem; height: 1.3rem; fill: currentColor; }
 .redes svg.st { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.redes span { display: flex; flex-direction: column; line-height: 1.25; }
+.redes b { font-weight: 600; }
+.redes small { font-size: 0.85rem; opacity: 0.85; }
 /* ---------- 10. Animaciones ---------- */
 @keyframes entrada { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
