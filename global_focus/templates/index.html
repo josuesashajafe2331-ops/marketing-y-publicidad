@@ -22,7 +22,9 @@
     </figure>
   </div>
   <ul class="strip" aria-label="Nuestros servicios">
-    <li class="strip-t">Nuestros servicios</li>
+  <li class="strip-t">
+      <a href="{{ url_for('servicios_page') }}" style="color: inherit; text-decoration: none;">Nuestros servicios</a>
+  </li>
     {% for cat in cats %}
       <li><a href="{{ url_for('servicios_page') }}#cat{{ loop.index }}" title="Ver los {{ cat.temas|length }} servicios de {{ cat.titulo }}"><svg viewBox="0 0 24 24" aria-hidden="true">{{ cat.icono|safe }}</svg><span>{{ cat.titulo }}<small>{{ cat.temas|length }} servicios →</small></span></a></li>
     {% endfor %}
