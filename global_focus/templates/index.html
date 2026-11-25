@@ -19,15 +19,14 @@
       <figcaption>Un equipo que entiende tus objetivos y convierte ideas en soluciones.</figcaption>
       <a class="hero2-ir" href="#equipo" aria-label="Conoce a nuestro equipo"></a>
     </figure>
-
-    <div class="hero2-contacto" aria-label="Datos de contacto directo">
-      <a class="hc-card" href="mailto:{{ c.correo or 'mktpublicidadcorporativo@gmail.com' }}">
+<div class="hero2-contacto" aria-label="Datos de contacto directo">
+      <a class="hc-card hc-correo" href="mailto:{{ c.correo or 'mktpublicidadcorporativo@gmail.com' }}">
         <span class="hc-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         </span>
         <span class="hc-txt">
           <small>Correo electrónico</small>
-          <b>{{ c.correo or 'mktpublicidadcorporativo@gmail.com' }}</b>
+          <b class="correo-linea">{{ c.correo or 'mktpublicidadcorporativo@gmail.com' }}</b>
         </span>
       </a>
 
@@ -48,11 +47,10 @@
         </span>
         <span class="hc-txt">
           <small>Ubicación</small>
-          <b>{{ c.dir_linea1 or 'Of. 216, Jr. Carabaya 1128' }}, {{ c.dir_linea2 or 'Cercado de Lima, Perú' }}</b>
+          <b>Of. 216, Jr. Carabaya 1128<br>Cercado de Lima, Perú</b>
         </span>
       </a>
     </div>
-  </div>
   
   </div>
   <ul class="strip" aria-label="Nuestros servicios">
