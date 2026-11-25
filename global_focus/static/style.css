@@ -156,6 +156,47 @@ textarea { resize: vertical; }
 .charlemos:hover { background: var(--gold); border-color: var(--gold); color: var(--n0); }
 
 /* ---------- 3. Inicio ---------- */
+CSS
+.hero2-in {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 3rem 5vw;
+}
+
+.hero2-txt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+  gap: 0.45rem;
+}
+
+.hero2 h1.titulo-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.04;
+  font-size: clamp(3.1rem, 6.8vw, 5.8rem);
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
 .hero2 h1.titulo-principal > span {
   display: block;
   width: 100%;
@@ -165,9 +206,11 @@ textarea { resize: vertical; }
   visibility: visible;
   overflow: visible;
   position: static;
-  margin: 0;
-  line-height: 1.08;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.04;
   font-size: inherit;
+  font-weight: inherit;
 }
 
 .hero2 h1.titulo-principal .linea-blanca {
@@ -175,18 +218,21 @@ textarea { resize: vertical; }
 }
 
 .hero2 h1.titulo-principal .linea-dorada {
-  color: #e6bd55;
+  color: #f0c456;
+  text-shadow: 0 6px 26px rgba(240, 196, 86, 0.22), 0 6px 24px rgba(0, 0, 0, 0.45);
 }
 
 .hero2 .sub {
   position: static;
   display: block;
-  margin: 1rem 0 0.25rem;
-  font-size: clamp(1rem, 1.45vw, 1.25rem);
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  width: 100%;
+  text-align: center;
+  margin: 0.9rem auto 0.2rem;
+  font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ice);
+  color: #ffffff;
   line-height: 1.4;
   animation: entrada 0.8s 0.32s both;
 }
@@ -195,12 +241,14 @@ textarea { resize: vertical; }
 .respaldo {
   position: static;
   display: inline-block;
-  margin: 0.2rem 0 0;
-  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+  margin: 0.2rem auto 0;
+  text-align: center;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
   line-height: 1.4;
   color: var(--ice);
   text-decoration: none;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1.5px solid var(--gold);
+  padding-bottom: 2px;
   animation: entrada 0.8s 0.38s both;
 }
 
@@ -209,35 +257,15 @@ textarea { resize: vertical; }
   color: #ffffff;
 }
 
-.btn-line {
-  display: block;
-  width: fit-content;
-  padding: 0.7rem 1.4rem;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  background: transparent;
-  text-decoration: none;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: background 0.25s, color 0.25s, transform 0.25s;
-  animation: entrada 0.8s 0.46s both;
-}
-.btn-line:hover {
-  background: var(--gold);
-  color: var(--n0);
-  transform: translateY(-3px);
-}
-
 .hero2-video {
   width: 100%;
-  max-width: 860px;
-  margin: 0;
+  max-width: 580px;
+  margin: 0 auto;
   overflow: hidden;
   background: var(--n2);
   border: 2px solid var(--line);
   border-radius: 6px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
   animation: entrada 1s 0.3s both;
 }
 
@@ -250,15 +278,15 @@ textarea { resize: vertical; }
 }
 
 .hero2-video figcaption {
-  padding: 1rem 1.3rem 1.2rem;
+  padding: 0.85rem 1.1rem 1rem;
   font-weight: 600;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  text-align: center;
   color: var(--txt);
   background: var(--n2);
   border-top: 0;
 }
-
 /* Franja de servicios al pie de la portada */
 .strip {
   list-style: none;
