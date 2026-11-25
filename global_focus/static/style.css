@@ -302,17 +302,15 @@ textarea { resize: vertical; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  max-width: 1120px;
   width: 100%;
-  margin: 0 auto 2.5rem;
-  padding: 0 5vw;
+  max-width: 1040px;
+  margin: 0.4rem auto 0;
 }
-
 .hc-card {
   display: flex;
   align-items: center;
   gap: 0.9rem;
-  padding: 1.1rem 1.25rem;
+  padding: 1rem 1.2rem;
   text-decoration: none;
   color: #fff;
   background: linear-gradient(155deg, #34977f 0%, var(--n2) 52%, #1f6a58 100%);
@@ -323,11 +321,10 @@ textarea { resize: vertical; }
 }
 
 .hc-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 20px 38px rgba(0, 0, 0, 0.42);
   filter: brightness(1.06);
 }
-
 .hc-ico {
   flex: none;
   display: grid;
@@ -351,7 +348,7 @@ textarea { resize: vertical; }
 
 .hc-txt {
   display: grid;
-  gap: 0.15rem;
+  gap: 0.18rem;
   min-width: 0;
   text-align: left;
 }
@@ -370,6 +367,15 @@ textarea { resize: vertical; }
   line-height: 1.3;
   color: #fff;
   overflow-wrap: anywhere;
+}
+
+.hc-txt b a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hc-txt b a:hover {
+  color: var(--gold);
 }
 
 @media (max-width: 900px) {
