@@ -156,46 +156,18 @@ textarea { resize: vertical; }
 .charlemos:hover { background: var(--gold); border-color: var(--gold); color: var(--n0); }
 
 /* ---------- 3. Inicio ---------- */
-.hero2-in {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.2rem;
-  justify-items: center;
-  text-align: center;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 3.5rem 5vw;
-}
-
-.hero2-txt {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 0.5rem;
-}
-
-.hero2 h1.titulo-principal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 0.25rem;
-  margin: 0;
-  font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 1.08;
-}
-
-.hero2 h1.titulo-principal span {
+.hero2 h1.titulo-principal > span {
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  flex: none;
-  white-space: normal;
-  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
+  position: static;
+  margin: 0;
   line-height: 1.08;
+  font-size: inherit;
 }
 
 .hero2 h1.titulo-principal .linea-blanca {
@@ -206,72 +178,36 @@ textarea { resize: vertical; }
   color: #e6bd55;
 }
 
-/* Subtítulo y respaldo separados con margen limpio */
 .hero2 .sub {
   position: static;
-  margin: 1rem 0 0.2rem;
-  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  display: block;
+  margin: 1rem 0 0.25rem;
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ice);
   line-height: 1.4;
+  animation: entrada 0.8s 0.32s both;
 }
 
-.hero2 .respaldo {
+.hero2 .respaldo,
+.respaldo {
   position: static;
   display: inline-block;
   margin: 0.2rem 0 0;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
   line-height: 1.4;
-  color: var(--ice);
-  text-decoration: none;
-  border-bottom: 1px solid var(--gold);
-}
-
-.hero2 .respaldo b {
-  color: #ffffff;
-}
-
-/* Vídeo debajo del texto */
-.hero2-video {
-  width: 100%;
-  max-width: 840px;
-  margin: 0;
-}
-/* Variante del título en dos colores (líneas blanca y dorada) */
-.hero2 h1.titulo-principal {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  gap: 4px;
-  line-height: 1.05;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-}
-.hero2 h1.titulo-principal span { display: block; width: 100%; flex: 0 0 100%; white-space: normal; }
-.hero2 h1.titulo-principal .linea-blanca { color: #fff; }
-.hero2 h1.titulo-principal .linea-dorada { color: #e6bd55; }
-
-.hero2 .sub {
-  margin: 1rem 0 0.6rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ice);
-  animation: entrada 0.8s 0.32s both;
-}
-.respaldo {
-  display: inline-block;
-  margin-bottom: 1.8rem;
-  font-size: 0.95rem;
   color: var(--ice);
   text-decoration: none;
   border-bottom: 1px solid var(--gold);
   animation: entrada 0.8s 0.38s both;
 }
-.respaldo b { color: #fff; }
+
+.hero2 .respaldo b,
+.respaldo b {
+  color: #ffffff;
+}
 
 .btn-line {
   display: block;
@@ -287,9 +223,15 @@ textarea { resize: vertical; }
   transition: background 0.25s, color 0.25s, transform 0.25s;
   animation: entrada 0.8s 0.46s both;
 }
-.btn-line:hover { background: var(--gold); color: var(--n0); transform: translateY(-3px); }
+.btn-line:hover {
+  background: var(--gold);
+  color: var(--n0);
+  transform: translateY(-3px);
+}
 
 .hero2-video {
+  width: 100%;
+  max-width: 860px;
   margin: 0;
   overflow: hidden;
   background: var(--n2);
@@ -298,7 +240,15 @@ textarea { resize: vertical; }
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
   animation: entrada 1s 0.3s both;
 }
-.hero2-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #e8eaee; }
+
+.hero2-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e8eaee;
+}
+
 .hero2-video figcaption {
   padding: 1rem 1.3rem 1.2rem;
   font-weight: 600;
