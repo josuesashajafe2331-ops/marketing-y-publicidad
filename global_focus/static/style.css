@@ -156,34 +156,58 @@ textarea { resize: vertical; }
 .charlemos:hover { background: var(--gold); border-color: var(--gold); color: var(--n0); }
 
 /* ---------- 3. Inicio ---------- */
-.hero2 {
-  background:
-    radial-gradient(900px 500px at 78% 40%, var(--n3), transparent 70%),
-    var(--n1);
-  color: var(--txt);
-}
 .hero2-in {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  max-width: 1400px;
+  grid-template-columns: 1fr;
+  gap: 2.2rem;
+  justify-items: center;
+  text-align: center;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 5vw 3.5rem;
+  padding: 3.5rem 5vw 3.5rem;
 }
 
-.hero2 h1 {
-  display: grid;
-  gap: 0.15rem;
-  font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 1;
+.hero2-txt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.hero2 .t1 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); letter-spacing: 0.03em; color: #fff; animation: entrada 0.8s both; }
-.hero2 .t2 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); letter-spacing: 0.03em; color: var(--gold); animation: entrada 0.8s 0.12s both; }
-.hero2 .t3 { margin-top: 0.7rem; font-size: clamp(1.4rem, 2.8vw, 2.2rem); font-weight: 600; letter-spacing: 0.08em; color: var(--ice); animation: entrada 0.8s 0.24s both; }
 
+.hero2 h1.titulo-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+  line-height: 1.05;
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+}
+.hero2 h1.titulo-principal span { display: block; width: 100%; flex: 0 0 100%; white-space: normal; }
+.hero2 h1.titulo-principal .linea-blanca { color: #fff; }
+.hero2 h1.titulo-principal .linea-dorada { color: #e6bd55; }
+
+.respaldo {
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: var(--ice);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  animation: entrada 0.8s 0.38s both;
+}
+.respaldo b { color: #fff; }
+
+.hero2-video {
+  width: 100%;
+  max-width: 820px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--n2);
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  animation: entrada 1s 0.3s both;
+}
 /* Variante del título en dos colores (líneas blanca y dorada) */
 .hero2 h1.titulo-principal {
   display: flex;
