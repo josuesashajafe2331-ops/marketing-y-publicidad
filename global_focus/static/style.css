@@ -180,13 +180,26 @@ textarea { resize: vertical; }
   text-align: center !important;
   gap: 0.5rem !important;
 }
+.hero2-in {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2rem !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+  padding: 3.2rem 2.5vw 1.8rem !important;
+  text-align: center !important;
+}
+
 .hero2 h1.titulo-principal {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: clamp(1rem, 2.4vw, 2.8rem) !important;
+  gap: clamp(1rem, 2.2vw, 2.6rem) !important;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
@@ -195,7 +208,7 @@ textarea { resize: vertical; }
   font-weight: 900 !important;
   text-transform: uppercase !important;
   line-height: 1.05 !important;
-  font-size: clamp(1.75rem, 3.2vw, 3.2rem) !important;
+  font-size: clamp(2rem, 3.7vw, 3.7rem) !important;
   text-shadow: 0 6px 24px rgba(0, 0, 0, 0.48) !important;
 }
 
@@ -208,7 +221,7 @@ textarea { resize: vertical; }
   font-size: inherit !important;
   font-weight: inherit !important;
   line-height: 1.05 !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.04em !important;
   white-space: nowrap !important;
   opacity: 1 !important;
   visibility: visible !important;
