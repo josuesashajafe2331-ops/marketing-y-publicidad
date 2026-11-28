@@ -48,7 +48,7 @@ CONFIG = {
     "correo": "mktpublicidadcorporativo@gmail.com",  # Reemplazar por el correo oficial
     "web": "www.mkt-corporativo.com",
     "ubicacion": "Oficina 216, Jr. Carabaya 1128, Cercado de Lima, Perú",
-    "dir_linea1": "Of. 216, Jr. Carabaya 1128",     # Dirección corta para el pie de página
+    "dir_linea1": "Jr. Carabaya 1128, Of. 216",     # Dirección corta para el pie de página
     "dir_linea2": "Cercado de Lima, Perú",
     "mapa_lat": -12.054594126562296,               # Coordenadas del mapa
     "mapa_lng": -77.03556743975349,
